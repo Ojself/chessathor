@@ -37,7 +37,7 @@ body {
 
 
 
-#player {
+.player {
     margin: 12px;
     width: 30px;
     height: 30px;

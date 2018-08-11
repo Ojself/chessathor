@@ -2,8 +2,15 @@ var topPos = 480
 var leftPos = 320
 var level = 0;
 
+
+var player = '<div class="player"><img src="/pics/bk.png" alt="" height="60px" ></div>';
+$("#game").append(player);
+
+var goalTile = '<div class="e8"><img src="/pics/goalTile.jpg" alt="" height="60px" ></div>';
+$("#game").append(goalTile)
+
+//key functions
 $(window).on('keydown', function(evt) {
-    console.log(evt.which)
     switch (evt.which) {
         case 65:
             movePlayer("left");
@@ -64,16 +71,15 @@ function movePlayer(direction) {
             break;
     }
 
-    levelOneObstacles.forEach(function(el) {
-        console.log('LEFT', el.css('left'))
-        console.log('TOP', el.css('top'))
-        console.log('')
-    })
-
     if (leftPos < 0) leftPos = 0;
     if (leftPos > 560) leftPos = 560;
     if (topPos < 0) topPos = 0;
     if (topPos > 560) topPos = 560;
+
+    $('.player').css({
+        "top": topPos + 'px',
+        "left": leftPos + 'px',
+    });
 
     // If you walk into goal, you go to next level //
     if (topPos == 0 && leftPos == 320) {
@@ -81,81 +87,74 @@ function movePlayer(direction) {
         nextLevel()
     };
     
-    
-
     function initialPosition(){
         topPos = 480;
         leftPos = 320;
     }
 
     function nextLevel() {
-        level++;
+        level++
+        $('#game').empty();
         if (level == 1){
-            levelOneObstacles.forEach(function(el) {
-                $('#game').append(el);
-            })
-        }
+            gameGenerator(red1, "redTile");
+            gameGenerator(pawn1, "wp");
+            $("#game").append(player);
+            $("#game").append(goalTile);
+         }
+
         if (level == 2){
-        $('#game').empty()
-            levelTwoObstacles.forEach(function(el) {
-                $('#game').append(el);
-            })
+            gameGenerator(pawn2, "wp");
+            $("#game").append(player);
+            $("#game").append(goalTile);
         }
+        
         if (level == 3){
-            $('#game').empty()
-                levelThreeObstacles.forEach(function(el) {
-                    $('#game').append(el);
-                })
-            }
+            gameGenerator(pawn3, "wp");
+            $("#game").append(player);
+            $("#game").append(goalTile);
+        }
+        }
+    }    
 
+
+function gameGenerator(arr, piece){
+    for (var i = 0; i < arr.length; i++) {
+        var el = '<div class="' + arr[i] + '"><img src="/pics/' + piece + '.png" alt="" height="60px" ></div>'
+        $("#game").append(el);
     }
-    
-
-    $('#player').css({
-        "top": topPos + 'px',
-        "left": leftPos + 'px',
-    });
 }
 
-// probably make seperate folder for the levels
 
-var levelOneObstacles = [
-    $('<div class="c6"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="f6"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="d5"><img src="/pics/redTile.gif" alt="" height="60px" ></div>'),
-    $('<div class="b5"><img src="/pics/redTile.gif" alt="" height="60px" ></div>'),
-    $('<div class="e5"><img src="/pics/redTile.gif" alt="" height="60px" ></div>'),
-    $('<div class="g5"><img src="/pics/redTile.gif" alt="" height="60px" ></div>'),
-]
 
-var levelTwoObstacles = [    
-    $('<div class="c5"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="d5"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="e5"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="f5"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="g5"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="c4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="d4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="e4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="f4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="g4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div id="player"><img src="/pics/bk.png" alt="" height="60px" ></div>'),
-    $('<div class="e8"><img src="/pics/goalTile.jpg" alt="" height="60px" ></div>'),
-]
 
-var levelThreeObstacles = [
-    $('<div class="h4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="g4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="f4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="e4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="d4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="c4"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="a6"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="b7"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="c7"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="d7"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="e7"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div class="f7"><img src="/pics/wp.png" alt="" height="60px" ></div>'),
-    $('<div id="player"><img src="/pics/bk.png" alt="" height="60px" ></div>'),
-    $('<div class="e8"><img src="/pics/goalTile.jpg" alt="" height="60px" ></div>'),
-]
+
+
+
+
+// MAP SETUP
+
+// OCCUPIED TILES
+// PAWNS
+// KNIGHTS
+// BISHOPS
+// ROOKS
+// QUEENS
+// OTHER
+
+// eg. pawnX = []
+//     redX = []
+
+// MAPS 
+
+// LEVEL 1
+
+var red1 = ["b5","d5","e5","g5"]
+var pawn1 = ["c6","f6"]
+
+// LEVEL 2
+
+var pawn2 = ["c5","d5","e5","f5","g5","c4","d4","e4","f4","g4"]
+
+// LEVEL 3
+
+var pawn3 = ["h4","g4","f4","e4","d4","c4","a6","b7","c7","d7","e7","f7"]
