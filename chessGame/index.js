@@ -1,13 +1,49 @@
-var topPos = 480
-var leftPos = 320
 var level = 0;
 
 
-var player = '<div class="player"><img src="/pics/bk.png" alt="" height="60px" ></div>';
-$("#game").append(player);
+var playerPiece = '<div class="player"><img src="/pics/bk.png" alt="" height="60px" ></div>';
+$("#game").append(playerPiece);
 
 var goalTile = '<div class="e8"><img src="/pics/goalTile.jpg" alt="" height="60px" ></div>';
 $("#game").append(goalTile)
+    
+   
+
+var level1 = [
+//    0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 ,        index
+//    A , B , C , D , E , F , G , H ,        index
+    [" "," "," "," "," "," "," "," "], // 8 - 0
+    [" "," "," "," "," "," "," "," "], // 7 - 1
+    [" "," "," "," ","P"," "," "," "], // 6 - 2 
+    [" "," "," "," "," "," "," "," "], // 5 - 3
+    [" "," "," "," "," "," "," "," "], // 4 - 4
+    [" "," "," "," "," "," "," "," "], // 3 - 5
+    [" "," "," "," "," "," "," "," "], // 2 - 6
+    [" "," "," "," "," "," "," "," "], // 1 - 7
+    
+] 
+
+
+
+
+
+
+var player = { 
+    x: 4,
+    y: 6, 
+}
+
+var playerCss = {
+    left: player.x*80,
+    top: player.y*80,
+}
+
+const X_MAX = 7;
+const Y_MAX = 7;
+
+var directions = { 'U': 'Up', 'L': 'Left', 'D': 'Down', 'R': 'Right'};
+var pieces = {'P': 'Pawn', 'N': 'Knight', 'B': 'Bishop', 'R': 'Rook'};
+var obstacles = {'P': 'Pawn'};
 
 //key functions
 $(window).on('keydown', function(evt) {
@@ -41,120 +77,119 @@ $(window).on('keydown', function(evt) {
     }
 });
 
+
 function movePlayer(direction) {
     switch (direction) {
         case 'left':
-            leftPos -= 80;
+            if (player.x < 1) {
+                console.log("out of bounds");
+                break;
+            }
+            var obstacle = level1[player.y][player.x - 1];
+            if (obstacle == 'X'){
+                console.log("CHECK: " + obstacles[obstacle])
             break;
-
+            }
+            player.x -=1;
+            console.log("X: " + player.x + "  Y: " + player.y)
+            break;
         case 'up':
-            topPos -= 80;
+            if (player.y < 1) {
+                console.log("out of bounds");
+                break;
+            }
+            var obstacle = level1[player.y - 2][player.x + 1];
+            if (obstacle == 'P'){
+                console.log("CHECK: " + obstacles[obstacle]+ " is occuping this place")
             break;
-
+            
+        }
+           var test = level1[player.y - 2][player.x - 1];
+            if (test == 'P'){
+                console.log("CHECK: " + obstacles[test]+ " is occuping this place")
+            break;
+        }
+            var piece = level1[player.y - 1][player.x];
+            if (piece != ' '){
+                console.log("PIECE CAPTURED: " + pieces[piece]);
+                var indexX = player.x;
+                var indexY = player.y;
+                    level1[player.y - 1].splice(player.x, 1, " ")
+                    
+                    
+            }
+            
+        player.y -=1;
+        console.log("X: " + player.x + "  Y: " + player.y)
+        break;
         case 'right':
-            leftPos += 80;
+            if (player.x == X_MAX) {
+                console.log("out of bounds");
+                break;
+            }
+            var obstacle = level1[player.y][player.x + 1];
+            if (obstacle == 'X'){
+                console.log("CHECK: " + obstacles[obstacle])
             break;
-
+            }
+        player.x +=1;
+        console.log("X: " + player.x + "  Y: " + player.y)
+        break;
         case 'down':
-            topPos += 80;
+            if (player.y == Y_MAX) {
+                console.log("out of bounds");
+                break;
+            }
+            var obstacle = level1[player.y + 1][player.x];
+            if (obstacle == 'X'){
+                console.log("CHECK: " + obstacles[obstacle])
             break;
-
+            }
+        player.y +=1;
+        console.log("X: " + player.x + "  Y: " + player.y)
+        break;
         case 'diagl':
-            leftPos -= 80;
-            topPos -= 80;
+            if (player.x < 1) {
+                console.log("out of bounds");
+                break;
+            }
+            var obstacle = level1[player.y - 1][player.x - 1];
+            if (obstacle == 'X'){
+                console.log("CHECK: " + obstacles[obstacle])
             break;
-        
+            }
+        player.x -=1;
+        player.y -=1;
+        console.log("X: " + player.x + "  Y: " + player.y)
+        break;
         case 'diagr':
-            leftPos += 80;
-            topPos -= 80;
-
+            if (player.x == X_MAX) {
+                console.log("out of bounds");
+                break;
+            }
+            var obstacle = level1[player.y - 1][player.x + 1];
+            if (obstacle == 'X'){
+                console.log("CHECK: " + obstacles[obstacle])
             break;
+            }
+        player.x +=1;
+        player.y -=1
+        console.log("X: " + player.x + "  Y: " + player.y)
     }
-
-    if (leftPos < 0) leftPos = 0;
-    if (leftPos > 560) leftPos = 560;
-    if (topPos < 0) topPos = 0;
-    if (topPos > 560) topPos = 560;
-
     $('.player').css({
-        "top": topPos + 'px',
-        "left": leftPos + 'px',
+        "top": player.y * 80 + 'px',
+        "left": player.x * 80 + 'px',
     });
-
-    // If you walk into goal, you go to next level //
-    if (topPos == 0 && leftPos == 320) {
-        initialPosition()
-        nextLevel()
-    };
-    
-    function initialPosition(){
-        topPos = 480;
-        leftPos = 320;
-    }
-
-    function nextLevel() {
-        level++
-        $('#game').empty();
-        if (level == 1){
-            gameGenerator(red1, "redTile");
-            gameGenerator(pawn1, "wp");
-            $("#game").append(player);
-            $("#game").append(goalTile);
-         }
-
-        if (level == 2){
-            gameGenerator(pawn2, "wp");
-            $("#game").append(player);
-            $("#game").append(goalTile);
-        }
-        
-        if (level == 3){
-            gameGenerator(pawn3, "wp");
-            $("#game").append(player);
-            $("#game").append(goalTile);
-        }
-        }
-    }    
-
-
-function gameGenerator(arr, piece){
-    for (var i = 0; i < arr.length; i++) {
-        var el = '<div class="' + arr[i] + '"><img src="/pics/' + piece + '.png" alt="" height="60px" ></div>'
-        $("#game").append(el);
-    }
 }
 
+function initialPosition(){
+    player.x = 4;
+    player.y = 6;
+}
 
+// If you walk into goal, you go to next level //
+/* if (player.x == 4 && player.y == 0) {
+    initialPosition()
+    nextLevel()
+}; */
 
-
-
-
-
-
-// MAP SETUP
-
-// OCCUPIED TILES
-// PAWNS
-// KNIGHTS
-// BISHOPS
-// ROOKS
-// QUEENS
-// OTHER
-
-// eg. pawnX = []
-//     redX = []
-
-// MAPS 
-
-// LEVEL 1
-
-var red1 = ["b5","d5","e5","g5"]
-var pawn1 = ["c6","f6"]
-
-// LEVEL 2
-
-var pawn2 = ["c5","d5","e5","f5","g5","c4","d4","e4","f4","g4"]
-
-// LEVEL 3
-
-var pawn3 = ["h4","g4","f4","e4","d4","c4","a6","b7","c7","d7","e7","f7"]
