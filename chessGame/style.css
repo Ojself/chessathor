@@ -5,45 +5,84 @@
     box-sizing: border-box;
 }
 
-.badGuy {
-    position: absolute;
-    display:flex;
-    align-content: flex-end;
-    justify-content: flex-end
-}
-
 body {
     margin: 0;
     font-family: 'Lato', sans-serif;
 }
 .container {
     padding: 25px calc((100vw - 960px) / 2);
+
     
 }
 .container:first-child {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(180, 180, 180);
+    background-color: black;
     min-height: 100vh;
 }
-#game {
+.game {
     width: 640px;
     height: 640px;
-    position: absolute;
-    background-image: url(pics/chessSet.png);
-    background-size: 100% 100%;
+    position: relative;
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 10px ridge lightslategray;
+    background-color: rgb(180, 180, 180);
+    box-sizing: content-box;
+    margin: 0 auto;
+    
+}
+
+#leftBox {
+    display: flex;
+    
+    height: 600px;
+    width: 300px;
+    position: relative;
+    margin-left: -100px
 }
 
 
+#tutorialGuy {
+    margin-top: 250px;
+    height: 600px;
+    width: 200px;
+	justify-content: center;
+	align-items: center;
+    position: absolute;
+    background-image: url(pics/tutGuy.png);
+    background-repeat: no-repeat;
+    background-size: 150px 150px;
+    
+    
+}
+
+#bubble {
+    
+        background-color: white;
+        border-radius: 20%;
+        display: flex;
+        padding: 15px 10px 15px 20px;
+        font-size: 20px;
+        margin: 0px 30px 400px 0px;
+        border: 3px solid white;
+        position:absolute;
+        
+     }
+     
+#bubble:hover {
+        border: 3px solid red;
+        cursor: pointer;
+    }
 
 .player {
-    margin: 12px;
+    margin: 10px;
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 480px;
-    left: 320px;
     transition: all 80ms ease-out;
     
 }
@@ -75,703 +114,631 @@ body {
     height:50px;
 }
 
+.wp {
+    flex:1;
+    position: relative;
+    background-image: url(pics/wp.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55px 55px;
+
+    
+}
+
+/* GOAL TILE */
+.gt {
+    flex:1;
+    position: relative;
+    background-image: url(pics/goalTile.png);
+    background-repeat: round;
+    
+}
+
 /* tiles */
 
-.a1 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 560px;
-    left: 0px;
-}
-
-.a2 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 480px;
-    left: 0px;
-}
-
-.a3 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 400px;
-    left: 0px;
-}
-
-.a4 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 320px;
-    left: 0px;   
-}
-
-.a5 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 240px;
-    left: 0px;
-}
-
-.a6 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 160px;
-    left: 0px;
-    
-}
-
-.a7 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 80px;
-    left: 0px;
-    
-}
-
-.a8 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    
-}
-
-.b1 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 560px;
-    left: 80px;
-}
-
-.b2 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 480px;
-    left: 80px;
-    
-}
-
-.b3 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 400px;
-    left: 80px;
-    
-}
-
-.b4 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 320px;
-    left: 80px;
-    
-}
-
-.b5 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 240px;
-    left: 80px;
-    
-}
-
-.b6 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 160px;
-    left: 80px;
-    
-}
-
-.b7 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 80px;
-    left: 80px;
-    
-}
-
-.b8 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 0px;
-    left: 80px;
-    
-}
-
-.c1 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 560px;
-    left: 160px;
-}
-
-.c2 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 480px;
-    left: 160px;
-    
-}
-
-.c3 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 400px;
-    left: 160px;
-    
-}
-
-.c4 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 320px;
-    left: 160px;
-    
-}
-
-.c5 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 240px;
-    left: 160px;
-    
-}
-
-.c6 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 160px;
-    left: 160px;
-    
-}
-
-.c7 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 80px;
-    left: 160px;
-    
-}
-
-.c8 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 0px;
-    left: 160px;
-    
-}
-
-.d1 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 560px;
-    left: 240px;
-}
-
-.d2 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 480px;
-    left: 240px;
-    
-}
-
-.d3 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 400px;
-    left: 240px;
-    
-}
-
-.d4 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 320px;
-    left: 240px;
-    
-}
-
-.d5 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 240px;
-    left: 240px;
-    
-}
-
-.d6 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 160px;
-    left: 240px;
-    
-    
-}
-
-.d7 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 80px;
-    left: 240px;
-    
-}
-
-.d8 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 0px;
-    left: 240px;
-    
-}
-
-.e1 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 560px;
-    left: 320px;
-}
-
-.e2 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 480px;
-    left: 320px;
-    
-}
-
-.e3 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 400px;
-    left: 320px;
-    
-}
-
-.e4 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 320px;
-    left: 320px;
-    
-}
-
-.e5 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 240px;
-    left: 320px;
-    
-}
-
-.e6 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 160px;
-    left: 320px;
-    
-}
-
-.e7 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 80px;
-    left: 320px;
-    
-}
-
-.e8 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 0px;
-    left: 320px;
-    
-}
-
-.f1 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 560px;
-    left: 400px;
-}
-
-
-.f2 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 480px;
-    left: 400px;
-    
-}
-
-.f3 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 400px;
-    left: 400px;
-    
-}
-
-.f4 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 320px;
-    left: 400px;
-    
-}
-
-.f5 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 240px;
-    left: 400px;
-    
-}
-
-.f6 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 160px;
-    left: 400px;
-    
-}
-
-.f7 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 80px;
-    left: 400px;
-    
-}
-
-.f8 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 0px;
-    left: 400px;
-    
-}
-
-.g1 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 560px;
-    left: 480px;
-}
-
-
-.g2 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 480px;
-    left: 480px;
-    
-}
-
-.g3 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 400px;
-    left: 480px;
-    
-}
-
-.g4 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 320px;
-    left: 480px;
-    
-}
-
-.g5 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 240px;
-    left: 480px;
-    
-}
-
-.g6 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 160px;
-    left: 480px;
-    
-}
-
-.g7 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 80px;
-    left: 480px;
-    
-}
-
-.g8 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 0px;
-    left: 480px;
-    
-}
-
-.h1 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 560px;
-    left: 560px;
-}
-
-
-.h2 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 480px;
-    left: 560px;
-    
-}
-
-.h3 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 400px;
-    left: 560px;
-    
-}
-
-.h4 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 320px;
-    left: 560px;
-    
-}
-
-.h5 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 240px;
-    left: 560px;
-    
-}
-
-.h6 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 160px;
-    left: 560px;
-    
-}
-
-.h7 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 80px;
-    left: 560px;
-    
-}
-
-.h8 {
-    margin: 12px;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 0px;
-    left: 560px;
-    
-}
-
-
-
-
-
-
-
-/* 
-old...messy code 
-.blackTile {
-    width: 65px;
-    height:65px;
+#t70 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
     background-color: burlywood;
-    position: relative;
-    
 }
-.whiteTile {
-    width: 65px;
-    height:65px;
+
+#t60 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
     background-color: beige;
-    position: relative;
+    
+}
+
+#t50 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t40 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t30 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t20 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+    
+}
+
+#t10 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+
+    
+}
+
+#t00 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+    
+}
+
+#t71 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+    
+}
+
+#t61 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t51 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t41 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t31 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t21 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t11 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t01 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t72 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t62 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t52 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+    
+}
+
+#t42 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t32 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t22 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t12 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+    
+}
+
+#t02 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t73 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t63 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+    
+}
+
+#t53 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+    
+}
+
+#t43 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
     
     
 }
 
-.row1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center
+#t33 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+    
 }
 
-.row2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center
-}
-.row3 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center
-}
-.row4 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center
-}
-.row5 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center
-}
-.row6 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center
-}
-.row7 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center
-}
-.row8 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center
+#t23 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+    
 }
 
+#t13 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+    
+}
+
+#t03 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+    
+}
+
+#t74 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t64 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t54 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+
+}
+
+#t44 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;   
+}
+
+#t34 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+    /* animation:blink 700ms 3 alternate;
+    animation-play-state: paused; */
+
+}
+
+#t24 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t14 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t04 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t75 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+
+#t65 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t55 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t45 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t35 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t25 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t15 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t05 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t76 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+
+#t66 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t56 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t46 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t36 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t26 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t16 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t06 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t77 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+
+#t67 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t57 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t47 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t37 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t27 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+#t17 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: beige;
+}
+
+#t07 {
+    min-width: 12.5%;
+    min-height: 12.5%;
+    box-sizing: border-box;
+    flex: 1;
+    background-color: burlywood;
+}
+
+.blink {
+    animation:blink 700ms 2 alternate;
+
+}
+
+@keyframes blink {
+    from { opacity:1; }
+    to { opacity:0; }
+}
+
+
+
+
+/* gipsy stuffs */
+/* gipsy classes */
+
+.puff-in-hor {
+	-webkit-animation: puff-in-hor 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+            animation: puff-in-hor 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+            background-color: red !important;
+}
+
+
+
+
+
+/* gipsy keyframes */
+
+/* ----------------------------------------------
+ * Generated by Animista on 2018-8-15 15:46:0
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation puff-in-hor
+ * ----------------------------------------
+ */
+ @-webkit-keyframes puff-in-hor {
+    0% {
+      -webkit-transform: scaleX(2);
+              transform: scaleX(2);
+      -webkit-filter: blur(2px);
+              filter: blur(2px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes puff-in-hor {
+    0% {
+      -webkit-transform: scaleX(2);
+              transform: scaleX(2);
+      -webkit-filter: blur(2px);
+              filter: blur(2px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  
