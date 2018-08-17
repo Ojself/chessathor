@@ -39,7 +39,7 @@
             settings = $.extend({ 
                 code: 77658869786769, // MAXENCE
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/maxence.png" alt="" height="60px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="/pics/maxence.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -71,7 +71,7 @@
             settings = $.extend({ 
                 code: 7685756583, // LUKAS
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/lukas.png" alt="" height="60px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="/pics/lukas.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -231,7 +231,7 @@
             settings = $.extend({ 
                 code: 777382, // MIR
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/mir.png" alt="" height="65px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="/pics/mir.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -263,7 +263,7 @@
             settings = $.extend({ 
                 code: 8669827978736765, // VERONICA
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/veronica.png" alt="" height="65px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="/pics/veronica.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
