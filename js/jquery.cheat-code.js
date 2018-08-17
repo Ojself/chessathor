@@ -7,7 +7,7 @@
             settings = $.extend({ 
                 code: 7173808389, // GIPSY // vivian
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/v.png" alt="" height="70px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="pics/v.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -39,7 +39,7 @@
             settings = $.extend({ 
                 code: 77658869786769, // MAXENCE
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/maxence.png" alt="" height="70px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="pics/maxence.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -71,7 +71,7 @@
             settings = $.extend({ 
                 code: 7685756583, // LUKAS
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/lukas.png" alt="" height="70px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="pics/lukas.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -103,7 +103,7 @@
             settings = $.extend({ 
                 code: 77736772656976, // MICHAEL
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/michael.png" alt="" height="70px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="pics/michael.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -135,7 +135,7 @@
             settings = $.extend({ 
                 code: 76658283, // LARS
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/lars.png" alt="" height="70px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="pics/lars.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -167,7 +167,7 @@
             settings = $.extend({ 
                 code: 837376867379, // SILVIO
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/silvio.png" alt="" height="70px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="pics/silvio.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -199,7 +199,7 @@
             settings = $.extend({ 
                 code: 787969767365, // NOELIA
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/noelia.png" alt="" height="70px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="pics/noelia.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -231,7 +231,7 @@
             settings = $.extend({ 
                 code: 777382, // MIR
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/mir.png" alt="" height="70px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="pics/mir.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -263,7 +263,7 @@
             settings = $.extend({ 
                 code: 8669827978736765, // VERONICA
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/veronica.png" alt="" height="70px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="pics/veronica.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
@@ -295,7 +295,7 @@
             settings = $.extend({ 
                 code: 686578736976, // DANIEL
                 time: 500,
-                callback: function() {var playerPiece = '<span class="player"><img src="/pics/daniel.png" alt="" height="70px" ></span>'; // 
+                callback: function() {var playerPiece = '<span class="player"><img src="pics/daniel.png" alt="" height="70px" ></span>'; // 
                 $(".game").append(playerPiece);
                 refreshBoard();
             
