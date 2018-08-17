@@ -121,19 +121,6 @@ var level = [
 // LEVEL 5 TEXT: Well done!
 
     [
-    [" ","G"," "," "," "," "," "," "], // 8 - 0
-    [" "," "," "," "," "," "," "," "], // 7 - 1
-    ["P","P","P"," ","P"," "," ","P"], // 6 - 2 
-    [" ","P"," ","P"," ","P"," ","P"], // 5 - 3
-    [" ","P"," ","P"," ","P","P","P"], // 4 - 4
-    [" ","P"," "," ","P"," "," ","P"], // 3 - 5
-    [" "," "," "," "," "," "," "," "], // 2 - 6
-    [" "," "," "," "," "," "," "," "], // 1 - 7  
-    ], 
-
-
-// LEVEL 6
-    [
     [" "," "," "," ","G"," "," "," "], // 8 - 0
     [" "," ","P"," "," "," "," "," "], // 7 - 1
     [" "," "," "," ","P"," "," "," "], // 6 - 2 
@@ -142,8 +129,21 @@ var level = [
     [" "," ","P","P","P"," ","P"," "], // 3 - 5
     ["P","P","P","P"," "," "," "," "], // 2 - 6
     [" "," "," "," "," "," "," "," "], // 1 - 7  
-    ], 
+    ],  
 
+
+// LEVEL 6
+    
+    [
+    [" ","G"," "," "," "," "," "," "], // 8 - 0
+    [" "," "," "," "," "," "," "," "], // 7 - 1
+    ["P","P","P"," ","P"," "," ","P"], // 6 - 2 
+    [" ","P"," ","P"," ","P"," ","P"], // 5 - 3
+    [" ","P"," ","P"," ","P","P","P"], // 4 - 4
+    [" ","P"," "," ","P"," "," ","P"], // 3 - 5
+    [" "," "," "," "," "," "," "," "], // 2 - 6
+    [" "," "," "," "," "," "," "," "], // 1 - 7  
+    ],
 
 // LEVEL 7
 
@@ -517,6 +517,8 @@ function bubbleText(){
             break;
         case 1:
         $("#bubble").text("The pawns occupy one tile on each of their forward-diagonal. Try capture them or navigate around them in order to get to goal. oh, and don't worry, they won't move.....for now..");
+        /* $('#pawnTut').show(); 
+        $('#pawnTut').hide();  */
             break;
         case 2:
         $("#bubble").text("sometimes pawns are protected by other pawns. Try capturing the ones behind in order to capture the one in front.");
@@ -528,7 +530,7 @@ function bubbleText(){
             $("#bubble").text("Text here");
             break;
         case 5:
-            $("#bubble").text("Text here");
+            $("#bubble").text("Did you know... it took > 500 lines of codes to create 8 cheat codes?");
             break;
         case 6:
             $("#bubble").text("Text here");
@@ -540,7 +542,69 @@ function bubbleText(){
             $("#bubble").text("Text here");
             break;
         case 9:
-            $("#bubble").text("Text here");
+            $("#bubble").text("Good luck..");
+            $("#t00").append('<div id=t00"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t01").append('<div id=t01"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t02").append('<div id=t02"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t03").append('<div id=t03"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            // GOAL IS HERE //
+            $("#t05").append('<div id=t05"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t06").append('<div id=t06"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t07").append('<div id=t07"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+
+            $("#t10").append('<div id=t10"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t11").append('<div id=t11"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t12").append('<div id=t12"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t13").append('<div id=t13"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t14").append('<div id=t14"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t15").append('<div id=t15"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t16").append('<div id=t16"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t17").append('<div id=t17"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+
+            $("#t20").append('<div id=t20"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t21").append('<div id=t21"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t22").append('<div id=t22"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t23").append('<div id=t23"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t24").append('<div id=t24"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t25").append('<div id=t25"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t26").append('<div id=t26"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t27").append('<div id=t27"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+
+            $("#t30").append('<div id=t30"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t31").append('<div id=t31"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t32").append('<div id=t32"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t33").append('<div id=t33"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t34").append('<div id=t34"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t35").append('<div id=t35"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t36").append('<div id=t36"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t37").append('<div id=t37"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+
+            $("#t40").append('<div id=t40"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t41").append('<div id=t41"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t42").append('<div id=t42"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t43").append('<div id=t43"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t44").append('<div id=t44"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t45").append('<div id=t45"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t46").append('<div id=t46"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t47").append('<div id=t47"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+
+            $("#t50").append('<div id=t50"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t51").append('<div id=t51"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t52").append('<div id=t52"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t53").append('<div id=t53"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t54").append('<div id=t54"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t55").append('<div id=t55"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t56").append('<div id=t56"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t57").append('<div id=t57"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+
+            $("#t60").append('<div id=t60"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t61").append('<div id=t61"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t62").append('<div id=t62"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t63").append('<div id=t63"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t64").append('<div id=t64"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t65").append('<div id=t65"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t66").append('<div id=t66"><img src="/pics/wp.png" alt="" height="60px" ></div>');
+            $("#t67").append('<div id=t67"><img src="/pics/wp.png" alt="" height="60px" ></div>');
             break;
         
         
@@ -549,3 +613,5 @@ function bubbleText(){
     }
 }
     
+
+

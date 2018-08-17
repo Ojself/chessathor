@@ -38,7 +38,6 @@ body {
 
 #leftBox {
     display: flex;
-    
     height: 600px;
     width: 300px;
     position: relative;
@@ -59,6 +58,28 @@ body {
     
     
 }
+
+
+#pawnTut {
+    margin-top: 250px;
+    height: 600px;
+    width: 200px;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-end;
+	align-content: stretch;
+    position: absolute;
+    background-image: url(pics/pawnTut.png);
+    background-repeat: no-repeat;
+    background-size: 150px 150px;
+    
+    
+}
+
+
+
 
 #bubble {
     
