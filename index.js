@@ -5,7 +5,7 @@ var piecesCaptured = 0;
 var subTotal = (levelCounter * 20) + (piecesCaptured * 5) - (moveCounter * 2);
 var scoreTotal = subTotal;
 
-var playerPiece = '<span class="player"><img src="/pics/bk.png" alt="" height="60px" ></span>';
+var playerPiece = '<span class="player"><img src="pics/bk.png" alt="" height="60px" ></span>';
 $(".game").append(playerPiece);
 
 
